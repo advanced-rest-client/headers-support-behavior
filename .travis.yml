@@ -9,14 +9,19 @@ addons:
   sauce_connect: true
 script:
 - npm run lint
-- ./node_modules/.bin/polymer test --plugin sauce --job-name "headers-support-behavior:${TRAVIS_BRANCH}" --build-number=${TRAVIS_BUILD_NUMBER}
+- ./node_modules/.bin/polymer test --plugin sauce --job-name "headers-support-behavior:${TRAVIS_BRANCH}"
+  --build-number=${TRAVIS_BUILD_NUMBER}
 cache:
   directories:
   - bower_components
   - node_modules
 branches:
   only:
-    - stage
-    - develop
+  - stage
+  - develop
 after_success:
-  - node tasks/ci.js
+- node tasks/ci.js
+env:
+  global:
+  - secure: fdP+/ra8a9i3OmJRvcQY/TM47c6AYJXR1Xp05OlnmLMQaVipINwxnsrc+orvyB/OWFjiXJZo14d0LOSfBH+YFrzyKTztVMw25Q0ftHErK117QI2H1RpDrExaFN/P3O5GhVfskULEQpE7zN5txvyfVkPZSCep9TAxbZz4tEreAkup+wZGgEmLP85QfUYxl96vqmRMCdPLqjzuF2ojC0gvyF8Gl8bbkhlHXGEIgM6mb/5DeepspLYxGWcWJzmpPyTxuzF8ohQ1LDbzIvxg4KNhkINy7sHCtEJ+ZocuNNZFrIe7fv1NRms591GPW0aZ+/R2UhQg65FeHRplph8tA9dg2hWq/HOQuffcYKhjLIVlil/aHff9fB0LP7cpUngY5jR779hR0wnKVyY39fAerTsq7dcDMRILbOS+iWUCDfxg2XpZ8wonrD/Au+TkQhTZWAt7YAJQtK+dCpUbm+VW0wQjXch1z+sOHw9Luz+stvD1siVbs5TlEq+2VWg0jERmvVKuUxivz8peiU0OU57z2B/goE3EKvoix3JlYm50rhmnbSzzEG4bEAI/OUAkhFbAXCw3Mu22nhjupbclcdg9NzB6eKw98lxgteL7LCp13HHORkQyD54QypI0xJDIz0V7sNL1zegRRoFABC7hQ2qf713XOzRysB6SrnZTqud5VNEAFlM=
+  - secure: PZVQawnnbzc603mkPgbsawELLWHktkmybaD0l2IlIPDN8ZKr4tQvepVorjF63xdFcckxYF9VjMBfFDvlEu/MhPkV6oprnIpc1ZPWdT9F1v4qqzlabKZZrgydvP9fktqs9rb8ccCzKF/1kyRsSZTxDOHSZDRPQly2o1dpi6oTOAofqaagjEmtAsfE2lH/z4gI5FkZrdrWh3V4gPZIO45bqlBe0lphu6TwPH4oKCa/cqcZrVRVZpj2kV3MfXN5T93acYF+0EKnEbr3rDN7gQMB5+wmEQjtrcSwKIFH5RdM7TS9Mmkzsti+nAoM9kQoX/NwqqWB/T0UJH6uPhpLQ9TPmse4qXIDk0WngHpP7DNZOdLpWvOZQKhS+DpjEbwP3XGlbK0hww7bSN4euNGQsCGEfXLiwiFPvwGWOIml6zxtWkFedO/cO12Ixs9cCZsk6u39X6j6rR+mLpn5HBgXN7B6AJna9tmiyyGUg5j7SmB2t8tDvAc/CD4738r26MXFE3mJR7IchOvtgzg5BQo16Tw1/IS4gD7ggsHTbmsy6c4Dn2fo0Jdq2pEnB1Z78fEdG1XvBItojMA6543Mn+GYWA/3lzvVdi9LZA2eU/JrlgmosFjk6GJJng9xTP+/oK2bhJ/lEdJcDmC3eeoa5HOKf6FIYKrCLxnpxsj8ReCyKczfiKo=
