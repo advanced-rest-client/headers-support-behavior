@@ -1,0 +1,43 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../paper-input/paper-input.html">
+<link rel="import" href="../../paper-button/paper-button.html">
+<link rel="import" href="../headers-support-behavior.html">
+<link rel="import" href="../headers-support-styles.html">
+
+<dom-module id="test-provider">
+  <template>
+    <style include="headers-support-styles"></style>
+
+    <h2 class="flex">Basic authorization</h2>
+    <div>
+      <paper-input value="{{value}}" label="Content Type"></paper-input>
+    </div>
+    <div class="buttons">
+      <paper-button dialog-dismiss>Cancel</paper-button>
+      <paper-button dialog-confirm>Select</paper-button>
+    </div>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'test-provider',
+
+      behaviors: [ArcBehaviors.FillSupportBehavior],
+
+      hostAttributes: {
+        'header-support': 'content-type'
+      },
+
+      listeners: {
+        'iron-overlay-closed': '_onClosed'
+      },
+
+      _onClosed: function(e) {
+        if (e.detail.canceled || !e.detail.confirmed) {
+          return;
+        }
+        this.setValue(this.value);
+      }
+    });
+  </script>
+</dom-module>
