@@ -14,6 +14,7 @@ the License.
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-scroll-target-behavior/iron-scroll-target-behavior.html">
 <link rel="import" href="../paper-dialog-behavior/paper-dialog-behavior.html">
+<link rel="import" href="../events-target-behavior/events-target-behavior.html">
 
 <script>
 (function() {
@@ -139,14 +140,14 @@ var FillSupportBehaviorImpl = {
     value: String
   },
 
-  attached: function() {
-    this.listen(window, 'headers-support-lookup', '_supportLookupHandler');
-    this.listen(window, 'headers-support-requested', '_supportRequestesHandler');
+  _attachListeners: function(node) {
+    this.listen(node, 'headers-support-lookup', '_supportLookupHandler');
+    this.listen(node, 'headers-support-requested', '_supportRequestesHandler');
   },
 
-  detached: function() {
-    this.unlisten(window, 'headers-support-lookup', '_supportLookupHandler');
-    this.unlisten(window, 'headers-support-requested', '_supportRequestesHandler');
+  _detachListeners: function(node) {
+    this.unlisten(node, 'headers-support-lookup', '_supportLookupHandler');
+    this.unlisten(node, 'headers-support-requested', '_supportRequestesHandler');
   },
   /**
    * Handler for the `headers-support-lookup` custom event.
@@ -237,7 +238,9 @@ var FillSupportBehaviorImpl = {
     });
   }
 };
+/** @polymerBehavior */
 window.ArcBehaviors.FillSupportBehavior = [
+  ArcBehaviors.EventsTargetBehavior,
   FillSupportBehaviorImpl,
   Polymer.PaperDialogBehavior,
   Polymer.IronScrollTargetBehavior
