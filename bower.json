@@ -21,7 +21,8 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^1.0.0",
     "paper-dialog-behavior": "PolymerElements/paper-dialog-behavior#^1.2.8",
-    "iron-scroll-target-behavior": "PolymerElements/iron-scroll-target-behavior#^1.1.1"
+    "iron-scroll-target-behavior": "PolymerElements/iron-scroll-target-behavior#^1.1.1",
+    "events-target-behavior": "advanced-rest-client/events-target-behavior#^0.1.3"
   },
   "devDependencies": {
     "iron-component-page": "polymerelements/iron-component-page#1.0.0",
