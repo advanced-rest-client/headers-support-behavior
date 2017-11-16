@@ -1,6 +1,6 @@
 {
   "name": "headers-support-behavior",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "license": "Apache-2.0 OR CC-BY-4.0",
   "description": "A common behaviors for headers fill support",
   "devDependencies": {

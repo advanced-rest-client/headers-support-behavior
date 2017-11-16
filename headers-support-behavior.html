@@ -158,7 +158,7 @@ var FillSupportBehaviorImpl = {
   _supportLookupHandler: function(e) {
     if (this.hasSupport(e.detail.header)) {
       if (!e.cancelable) {
-        throw new Error('The event must "cancelable" but it isn\'t.');
+        throw new Error('The event must be "cancelable" but it isn\'t.');
       }
       this.__cancelEvent(e);
       e.detail.provider = this;

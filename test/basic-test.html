@@ -17,8 +17,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="../../web-component-tester/browser.js"></script>
     <script src="../../iron-test-helpers/test-helpers.js"></script>
     <script src="../../iron-test-helpers/mock-interactions.js"></script>
-
-    <!-- Step 1: import the element to test -->
     <link rel="import" href="test-provider.html">
   </head>
   <body>
@@ -44,7 +42,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     suite('basic', function() {
       var element;
-      setup(function() {
+      suiteSetup(function() {
         element = fixture('basic');
       });
 
@@ -67,11 +65,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         assert.isOk(event.detail.provider);
       });
 
-      test('Do not have support (direct API)', function() {
-        var haveSupport = element.hasSupport('X-Test');
-        assert.isFalse(haveSupport);
-      });
-
       test('Event is not canceled without support', function() {
         var event = fireEvent('headers-support-lookup', {
           header: 'X-Test'
@@ -85,6 +78,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           value: 'test-value'
         });
         assert.isTrue(element.opened);
+      });
+
+      test('Do not have support (direct API)', function() {
+        var haveSupport = element.hasSupport('X-Test');
+        assert.isFalse(haveSupport);
       });
 
       test('Dialog value is set from event value', function() {
