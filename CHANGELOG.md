@@ -1,3 +1,13 @@
+<a name="0.2.1"></a>
+## [0.2.1](https://github.com/advanced-rest-client/headers-support-behavior/compare/0.1.2...0.2.1) (2017-11-16)
+
+
+### New
+
+* Adding ArcBehaviors.EventsTargetBehavior ([8c1887a366dff177328992bd9510a9790e022106](https://github.com/advanced-rest-client/headers-support-behavior/commit/8c1887a366dff177328992bd9510a9790e022106))
+
+
+
 <a name="0.1.2"></a>
 ## 0.1.2 (2017-10-02)
 
